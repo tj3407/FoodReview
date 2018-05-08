@@ -1,0 +1,22 @@
+<button class='btn btn-danger' (click)='onDelete(movie._id)'>DELETE MOVIE</button>
+<fieldset>
+  <h1>Reviews for {{ movie?.title }}</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Reviewer</th>
+        <th><a href (click)="sortTable('star')">Stars</a></th>
+        <th>Reviews</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let data of movie?.review | sort:path:order'>
+        <td>{{ data.name }}</td>
+        <td>{{ data.star }}</td>
+        <td>{{ data.message }}</td>
+        <td><button class='btn btn-danger' (click)='deleteReview(data._id, movie._id)'>Delete Review</button></td>
+      </tr>
+    </tbody>
+  </table>
+</fieldset>

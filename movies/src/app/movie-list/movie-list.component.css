@@ -1,0 +1,12 @@
+fieldset {
+  border: 1px solid black;
+  padding: 30px;
+}
+h1 {
+  display: inline-block;
+  width: 400px;
+}
+.btn-secondary {
+  float: right;
+  vertical-align: middle;
+}
