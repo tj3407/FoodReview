@@ -1,4 +1,4 @@
-DEPLOYMENT: http://54.183.26.58
+DEPLOYMENT: http://54.153.110.20
 
 # Movies
 
