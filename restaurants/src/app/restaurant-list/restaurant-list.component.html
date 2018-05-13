@@ -1,0 +1,25 @@
+<section>
+  <h3>Restaurants</h3>
+  <button class='btn btn-success' [routerLink]='["new"]'>New restaurant</button>
+  <table class='table table-striped'>
+    <thead>
+      <tr>
+        <td>Restaurant</td>
+        <td>Cuisine</td>
+        <td>Actions available</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let restaurant of restaurants'>
+        <td>{{ restaurant?.name }}</td>
+        <td>{{ restaurant?.cuisine }}</td>
+        <td>
+          <button class='btn btn-success' [routerLink]='["reviews", restaurant._id]'>Read reviews</button>
+          <button class='btn btn-warning' [routerLink]='["edit", restaurant._id]'>Update</button>
+          <button class='btn btn-danger' (click)='onDelete(restaurant._id)'>Delete</button>
+        </td>
+      </tr>
+    </tbody>
+
+  </table>
+</section>

@@ -1,0 +1,20 @@
+<section>
+  <h3>Reviews for {{ restaurant?.name }}</h3>
+  <button class='btn btn-primary' [routerLink]='["/write", restaurant?._id]'>New review</button>
+  <table class='table table-striped'>
+    <thead>
+      <tr>
+        <td>Customer</td>
+        <td><a href (click)="sortTable('star')">Stars</a></td>
+        <td>Description</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let data of restaurant?.reviews | sort:path:order'>
+        <td>{{ data?.name }}</td>
+        <td>{{ data?.star }}</td>
+        <td>{{ data?.message }}</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
