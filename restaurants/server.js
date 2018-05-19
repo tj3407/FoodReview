@@ -16,7 +16,8 @@ app.use(parser.urlencoded({ extended: true }));
 // - - - - = = = = Model = = = = - - - -
 const uniqueValidator = require('mongoose-unique-validator');
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/restaurant-api');
+mongoose.connect(process.env.MONGODB_URI);
+// mongoose.connect('mongodb://localhost/restaurant-api');
 mongoose.connection.on('connected', () => console.log('connected to MongoDB'));
 mongoose.Promise = global.Promise;
 const { Schema } = mongoose;
@@ -120,5 +121,5 @@ app
 
 
 // - - - - = = = = Server Listener = = = = - - - -
-const port = 8000;
+const port = process.env.PORT || 8000;
 app.listen(port, ()=> console.log(`Express server listening on port ${port}`));
